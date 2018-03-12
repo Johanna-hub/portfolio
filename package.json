@@ -4,7 +4,8 @@
   "scripts": {
     "client": "cd client && npm run start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev":
+      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "env2": "^2.2.0",
@@ -14,5 +15,8 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0"
+  },
+  "engines": {
+    "node": "8.7.0"
   }
 }
