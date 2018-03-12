@@ -5,7 +5,8 @@
     "client": "cd client && npm run start",
     "server": "nodemon server.js",
     "dev":
-      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+      "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "env2": "^2.2.0",
