@@ -7,7 +7,7 @@
     "dev":
       "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "postinstall": "cd client && npm install && npm run build",
-    "start": "node ./src/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "env2": "^2.2.0",
