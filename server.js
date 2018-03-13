@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request');
 const instaCall = require('./insta_call');
 const API_key = require('./config.js');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,5 +18,9 @@ app.get('/hello', (req, res) => {
     }
   );
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
