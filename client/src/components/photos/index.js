@@ -1,23 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const sizes = {
-  giant: 1170,
-  desktop: 992,
-  tablet: 768,
-  phone: 376
-};
-
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16;
-  accumulator[label] = (...args) => css`
-    @media (max-width: ${emSize}em) {
-      ${css(...args)};
-    }
-  `;
-  return accumulator;
-}, {});
-
 const PhotoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -27,13 +10,17 @@ const PhotoContainer = styled.div`
   margin-bottom: 0;
   padding-bottom: 1rem;
   width: 70%;
-  ${media.phone`flex-flow: column-wrap`};
+  @media (max-width: 400px){
+    flex-flow: column-wrap;
+  }
 `;
 
 const StyledPhoto = styled.img`
   width: 16%;
   height: 16%;
-  ${media.phone`width: 35%`};
+  @media (max-width: 400px){
+    width: 35%;
+  }
 `;
 
 const MainPhotos = styled.div`
@@ -45,7 +32,9 @@ const MainPhotos = styled.div`
 const LoadingText = styled.p`
   font-size: 2rem;
   color: #f8c8ae;
-  ${media.phone`font-size: 1rem`};
+  @media (max-width: 400px){
+    display: none;
+  }
 `;
 
 const Loader = styled.div`
@@ -53,6 +42,12 @@ width: 40px;
   height: 40px;
   margin: 100px auto;
   background-color: #f8c8ae;
+  @media (max-width: 400px){
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 200px;
+
+  }
 
   border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
@@ -87,7 +82,8 @@ const Icon = ({ size = '3rem', color = '#F8C8AE', title, children }) => (
       svg {
         vertical-align: middle;
         fill: ${color};
-        padding-top: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
       }
     `}</style>
   </svg>

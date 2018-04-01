@@ -29,7 +29,9 @@ const Container = styled.div`
   height: 100vh;
   background-color: #556f82;
   width: 100vw;
-  ${media.phone`height: 100%`};
+  @media (max-width: 400px){
+    height: unset;
+  }
 `;
 
 injectGlobal`

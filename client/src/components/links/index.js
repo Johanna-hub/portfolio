@@ -1,23 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const sizes = {
-  giant: 1170,
-  desktop: 992,
-  tablet: 768,
-  phone: 376
-};
-
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16;
-  accumulator[label] = (...args) => css`
-    @media (max-width: ${emSize}em) {
-      ${css(...args)};
-    }
-  `;
-  return accumulator;
-}, {});
-
 const Main = styled.div`
   margin: auto;
   display: flex;
@@ -30,7 +13,11 @@ const Title = styled.p`
   color: #f8c8ae;
   text-align: center;
   margin: 0.5rem;
-  ${media.phone`font-size:2.5rem; padding: 2rem; padding-top:4rem`};
+  @media (max-width: 400px){
+    font-size: 2.5rem;
+    padding: 2rem;
+    padding-top: 4rem;
+  }
 `;
 
 const LinksContainer = styled.div`
@@ -81,7 +68,7 @@ export class Links extends React.Component {
   render() {
     return (
       <Main>
-        <Title>JOHANNA HERMAN</Title>
+        <Title>Johanna Herman</Title>
         <LinksContainer>
           <a
             href="https://github.com/Johanna-hub"
