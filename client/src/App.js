@@ -1,24 +1,7 @@
 import React, { Component } from 'react';
 import { Photos } from './components/photos';
 import { Links } from './components/links';
-import styled, { injectGlobal, css } from 'styled-components';
-
-const sizes = {
-  giant: 1170,
-  desktop: 992,
-  tablet: 768,
-  phone: 376
-};
-
-export const media = Object.keys(sizes).reduce((accumulator, label) => {
-  const emSize = sizes[label] / 16;
-  accumulator[label] = (...args) => css`
-    @media (max-width: ${emSize}em) {
-      ${css(...args)};
-    }
-  `;
-  return accumulator;
-}, {});
+import styled, { injectGlobal } from 'styled-components';
 
 const Container = styled.div`
   font-family: 'Josefin Sans', monospace;
@@ -29,7 +12,7 @@ const Container = styled.div`
   height: 100vh;
   background-color: #556f82;
   width: 100vw;
-  @media (max-width: 400px){
+  @media (max-width: 480px){
     height: unset;
   }
 `;
